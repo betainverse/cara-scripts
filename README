@@ -1,2 +1,7 @@
 Scripts for manipulating CARA xml repositories
 
+see http://cara.nmr.ch
+
+Warning: Python scripts use a nonstandard path for python in the #! line. You will probably need to change it. 
+
+These scripts require python2.5 or above due to dependence on the ElementTree module. 
