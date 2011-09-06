@@ -44,8 +44,8 @@ def main():
     # but also variable names for storing the input and output filenames.
     
     parser = OptionParser() # creates an instance of the parser
-    parser.usage = "%prog -i input.cara -s shiftChange -t tag -x spectrumID [-o output.cara] [-p project-name]"
-    parser.description = "%prog takes a cara repository file and shifts all the amide nitrogen spins in a project by a specified amount. If the \'-a\' option is used, it also shifts aliases by the same amount."
+    parser.usage = "%prog -i input.cara -d shiftChange -t tag -s spectrumID [-o output.cara] [-p project-name]"
+    parser.description = "%prog takes a cara repository file and shifts all the spin aliases with the indicated tag in the indicated spectrum by a specified amount."
     parser.epilog = ""
     parser.add_option("-d", "--shift", dest="shiftChange", type="float",
                       help="Desired change in chemical shift in ppm, required.")
