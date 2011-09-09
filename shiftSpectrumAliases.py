@@ -120,10 +120,22 @@ def main():
 
     spinbase = project.find('spinbase')
     spins = spinbase.findall('spin')
+
+
+    
     for spin in spins:
         tag = spin.get('tag')
         if tag == tagToShift:
             positions = spin.findall('pos')
+            spectra = [pos.get('spec') for pos in positions]
+            if specIDtoShift not in spectra:
+                newalias = ET.Element('pos')
+                unalias = [pos for pos in positions if pos.get('spec') == '0'][0]
+                for attribute in unalias.keys():
+                    newalias.set(attribute,unalias.get(attribute))
+                newalias.set('spec',specIDtoShift)
+                spin.append(newalias)
+                positions.append(newalias)
             for pos in positions:
                 spec = pos.get('spec')
                 shift = float(pos.get('shift'))
