@@ -98,6 +98,8 @@ def isExchangeable(spindict,spinID):
         return True
     elif AA == 'ARG' and atomType == 'HE':
         return True
+    elif AA == 'CYS' and atomType == 'HG':
+        return True
     else:
         return False
 
