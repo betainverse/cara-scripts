@@ -1,4 +1,4 @@
-#!/nmr/programs/python/bin/python2.5
+#!/usr/bin/python
 """
 ModifyCaraProtFile.py reads a prot file exported from CARA and adds calibration
 values to the H and N chemical shift fields.
@@ -35,16 +35,17 @@ def main():
     outputfile = open(outfile,'w')
     for line in lines:
         fields = line.split()
-        oldChemShift = float(fields[1])
-        atomType = fields[3]
-        if atomType == 'H' or atomType == 'HN':
-            newChemShift = oldChemShift + Hadjust
-        elif atomType == 'N':
-            newChemShift = oldChemShift + Nadjust
-        else:
-            newChemShift = oldChemShift
-        newline = fields[0] + ' ' + '%7.3f'%newChemShift + ' '+ fields[2] + ' ' + fields[3].ljust(5) + ' ' + fields[4] + '\n'
-        outputfile.write(newline)
+        if len(fields)>=5:
+            oldChemShift = float(fields[1])
+            atomType = fields[3]
+            if atomType == 'H' or atomType == 'HN':
+                newChemShift = oldChemShift + Hadjust
+            elif atomType == 'N':
+                newChemShift = oldChemShift + Nadjust
+            else:
+                newChemShift = oldChemShift
+            newline = fields[0] + ' ' + '%7.3f'%newChemShift + ' '+ fields[2] + ' ' + fields[3].ljust(5) + ' ' + fields[4] + '\n'
+            outputfile.write(newline)
     outputfile.close()
 
 main()
