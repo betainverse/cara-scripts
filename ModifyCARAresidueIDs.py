@@ -1,4 +1,4 @@
-#!/nmr/programs/python/bin/python2.5
+#!/usr/bin/python
 """
 ModifyCARAresidueIDs.py takes a cara repository file and renumbers the residue
 ids in the sequence by replacing them with the sequence numbers. Note that this is only

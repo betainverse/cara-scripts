@@ -1,4 +1,4 @@
-#!/nmr/programs/python/bin/python2.5
+#!/usr/bin/python
 """
 renumberProtFile.py reads a prot file from XEASY and changes the spin numbers
 in the first column so that it can be imported into CARA without overwriting
